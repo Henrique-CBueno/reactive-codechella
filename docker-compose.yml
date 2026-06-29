@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_15
+    restart: always
+    environment:
+      POSTGRES_DB: codechella
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_15_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_15_data:
