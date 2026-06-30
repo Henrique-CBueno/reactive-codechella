@@ -5,6 +5,7 @@ import com.bsys.reactivecodechella.dtos.EventoDTO;
 import com.bsys.reactivecodechella.repository.EventoRepository;
 import com.bsys.reactivecodechella.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +48,7 @@ public class EventoController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Mono<EventoDTO> create(@RequestBody EventoDTO dto) {
 
         return eventoService.create(dto)
